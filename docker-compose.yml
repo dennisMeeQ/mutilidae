@@ -1,0 +1,16 @@
+# Use postgres/password user/password credentials
+version: '3.1'
+
+services:
+  mutillidae:
+    build: .
+    ports:
+      - 8083:80
+      - 8483:443
+  db:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DB: mutillidae
+      ports: 3308:3306
+
